@@ -26,7 +26,7 @@ const Collaborators = () => {
                     <Container>
                         <Row className ="text-center">
                             <Col md={12}>
-                                <img src ={illinois} alt=""illinois/>
+                                <img src ={illinois} alt="illinois"/>
                                 <img src ={duke} alt="duke"/>
                                 <img src ={google} alt="google"/>
                                 <img src ={umich} alt="umich"/>

@@ -1,47 +1,43 @@
-import React from 'react';
-import { Nav, Navbar, Form, FormControl,Button,DropdownButton,Dropdown } from 'react-bootstrap';
-import styled from 'styled-components';
+import React, { useState } from 'react';
+import { Nav, Navbar, Form, FormControl,Button,NavDropdown } from 'react-bootstrap';
 import logo from '../images/download.svg';
+import  AuthModal from './AuthModal';
 
-const Styles = styled.div`
-  .navbar { background-color: #fff; }
-  a, .navbar-nav, .navbar-light .nav-link {
-    color: #2a73cc;
-    &:hover { color: white; }
-  }
-  .navbar-brand {
-    font-size: 1.4em;
-    color: #9FFFCB;
-    &:hover { color: white; }
-  }
-  .form-center {
-    position: absolute !important;
-    left: 25%;
-    right: 25%;
-  }
-`;
 
-export const NavigationBar = () => (
-    <Styles>
-        <Navbar expand="lg">
-        <Navbar.Brand>
-            <img src={logo} alt="logo"  href="/" style={{cursor:"pointer"}}/>
-            <DropdownButton id="dropdown-basic-button" title="Explore" style={{marginLeft: "5%",display:"inline"}}>
-                <Dropdown.Item href="#/action-1">Action</Dropdown.Item>
-                <Dropdown.Item href="#/action-2">Another action</Dropdown.Item>
-                <Dropdown.Item href="#/action-3">Something else</Dropdown.Item>
-            </DropdownButton>
-        </Navbar.Brand>
-        <Navbar.Toggle aria-controls="basic-navbar-nav"/>
-        <Form className="form-center" style={{marginLeft: "5%"}}>
-            <FormControl type="text" placeholder="Search" className="" />
-        </Form>
-        <Navbar.Collapse id="basic-navbar-nav">
-            <Nav className="ml-auto">
-            <Nav.Item><Nav.Link href="/">For Enterprise</Nav.Link></Nav.Item> 
-            <Nav.Item><Button variant="primary">Join For Free</Button></Nav.Item>
-            </Nav>
-        </Navbar.Collapse>
-        </Navbar>
-    </Styles>
+export const NavigationBar = () => {
+
+  const [modalShow,setModalShow] = useState(false);
+  
+  return (
+  <React.Fragment>
+  <Navbar collapseOnSelect expand="lg" bg="white" sticky="top">
+    <Navbar.Brand href="#home">
+      <img src={logo} alt={logo} />
+    </Navbar.Brand>
+    <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+    <Navbar.Collapse id="responsive-navbar-nav">
+      <Nav className="mr-auto">
+        <NavDropdown title="Explore" id="collasible-nav-dropdown" style={{color:"#fff"}}>
+          <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.2">Another action</NavDropdown.Item>
+          <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+          <NavDropdown.Divider />
+          <NavDropdown.Item href="#action/3.4">Separated link</NavDropdown.Item>
+        </NavDropdown>
+      </Nav>
+      <Form inline>
+        <FormControl type="text" placeholder="Search" className="mr-sm-2" />
+        <Button variant="outline-light">Search</Button>
+      </Form>
+      <Nav>
+        <Nav.Link>For Enterprise</Nav.Link>
+        <Nav.Link href="#deets"><Button variant="primary" onClick={() => setModalShow(true)}>Join For free</Button></Nav.Link>
+      </Nav>
+    </Navbar.Collapse>
+  </Navbar>
+  <AuthModal
+    show={modalShow}
+    onHide={() => setModalShow(false)} />
+  </React.Fragment>
 )
+}
