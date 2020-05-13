@@ -25,7 +25,7 @@ const LearnerSection = () => (
                     <img src={redcir} alt="" />
                 </Redcir>
                 <div>
-                    <img src={promo}  className="proming-image"/>
+                    <img src={promo} alt=""  className="proming-image"/>
                 </div>
             </Col>
             <Col md={5} sm={12} className="socks">

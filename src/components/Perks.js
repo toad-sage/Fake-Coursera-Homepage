@@ -27,7 +27,7 @@ const Perks = () => (
             <Row className="text-center">
                 <Col md={3} sm={12}>
                     <div className="perk-box">
-                        <img src={SvgaLearn} />
+                        <img src={SvgaLearn} alt=""/>
                         <h3>Learn the latest skills</h3>
                         <p>like business analytics, graphic design, Python, and more</p>
                     </div>

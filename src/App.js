@@ -2,7 +2,7 @@ import React from 'react';
 import './App.css';
 
 import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import { NavigationBar } from './components/NavBar';
 
 import Banner from './components/Banner';
@@ -15,6 +15,7 @@ import Section4 from './components/Section4'
 import Section5 from './components/Section5';
 import Section6 from './components/Section6';
 import Section7 from './components/Section7';
+import SliderSection from './components/SliderSection';
 import Footer from './components/Footer'
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
         <Section3 />
         <Section4 />
         <Section5 />
+        <SliderSection />
         <Section6 />
         <Section7 />
         <Footer />
